@@ -1,0 +1,211 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Lato, Helvetica, sans-serif;
+    background: linear-gradient(90deg, #FF5F6D, #FFC371, #835A20);
+    padding: clamp(20px, 5vw, 50px) 20px 10px;
+}
+
+.date {
+    font-family: raleway, sans-serif;
+    font-weight: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    padding: 20px 20px 20px;
+}
+
+.container {
+    max-width: 375px;
+    background-color: #F1F1F1;
+    color: #333;
+    padding-top: 20px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.375);
+    border-radius: 10px;
+    margin: 0 auto;
+    background: url(ressources/gradient.jpg);
+    background-size: cover;
+}
+
+h1 {
+    font-family: raleway, sans-serif;
+    font-weight: 30px;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+}
+
+h1 span {
+    font-weight: bold;
+}
+
+.bloc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.LottoImage {
+    transform: scale(1.4);
+    width: 150px;
+    border-radius: 50%;
+}
+
+.blocTop {
+    text-align: center;
+    justify-content: center;
+}
+
+.blocBottom {
+    text-align: center;
+    justify-content: center;
+}
+
+.numerosEur,
+.numerosLotto {
+    margin-top: 10px;
+    font-size: 30px;
+    word-break: break-all;
+}
+
+.numerosEurCompl {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.numerosLotto {
+    margin-bottom: 0px;
+}
+
+
+/* .blocMiddle {
+    width: 200px;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 25px;
+    padding: 30px 20px 20px;
+    background-color: #FFF;
+    position: relative;
+} */
+
+
+/* button {
+    align-items: center;
+    color: #130c0c;
+    border-radius: 5px;
+    font-size: 18px;
+    min-width: 100px;
+    padding: 5px;
+    margin: 20px 5px 10px;
+    background: transparent;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+button:hover {
+    color: #9d9d9d;
+    border: 1px solid #C7C7C7;
+}
+
+button.active {
+    color: #222;
+    border: 1px solid #b6b6b6;
+} */
+
+#button-42 {
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+    height: 40px;
+    line-height: 40px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 9;
+    border: 0;
+    transition: box-shadow .2s;
+    margin: 20px auto 20px auto;
+}
+
+#button-42:hover {
+    box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+
+.loader {
+    position: relative;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: transparent;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: visibility 0s 0.8s ease-out, opacity 0.4s 0.4s ease-out;
+}
+
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #111;
+    margin: 0 3px;
+    animation: load 0.3s infinite ease-out alternate;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes load {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+.footer {
+    font-family: raleway, sans-serif;
+    font-weight: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    padding: 20px 20px 20px;
+}
