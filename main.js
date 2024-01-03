@@ -13,25 +13,37 @@ const labeldate = document.querySelector(".date");
 
 loader.style.display = "none";
 
-// Fonction pour générer un nombre aléatoire entre min et max inclus
+button.addEventListener("click", Generate);
+
 function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.round(Math.random() * (max - min) + min);
 }
 
-// Fonction pour générer les numéros EuroMillions
-function generateEuroMillions() {
-  ListNum.length = 0;
-  ListNumComplementaires.length = 0;
+const date = new Date().getFullYear();
+console.log(date);
 
+function Generate() {
+  var date = new Date();
+  var current_date =
+    date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+  labeldate.textContent = current_date;
+  numerosEur.textContent = "";
+
+  loader.style.display = "flex";
+  //EuroMillions
+  ListNum.splice(0, ListNum.length);
+  ListNumComplementaires.splice(0, ListNumComplementaires.length);
+  ListNumComplementaires;
   while (ListNum.length < 5) {
-    const numero = getRandomNumber(1, 50);
+    numero = getRandomNumber(1, 50);
     if (!ListNum.includes(numero)) {
       ListNum.push(numero);
     }
   }
 
+  //ListNum.substring(0, str.length - 1);
   while (ListNumComplementaires.length < 2) {
-    const numero = getRandomNumber(1, 12);
+    numero = getRandomNumber(1, 12);
     if (!ListNumComplementaires.includes(numero)) {
       ListNumComplementaires.push(numero);
     }
@@ -39,60 +51,41 @@ function generateEuroMillions() {
 
   ListNum.sort(compareNumbers);
   ListNumComplementaires.sort(compareNumbers);
-}
+  console.log(
+    "Liste des Numéros pour l'Euro Millions : [" +
+      ListNum +
+      "]  [" +
+      ListNumComplementaires +
+      "]"
+  );
 
-// Fonction pour générer les numéros du Lotto
-function generateLotto() {
-  ListNum.length = 0;
+  //ListNum.forEach(element => console.log(element));
+
+  //ListNum.forEach(e => numerosEur.textContent += e + " / ");
+  numerosEur.textContent = ListNum;
+  numerosEurCompl.textContent = ListNumComplementaires;
+
+  //Lotto
+  //reset
+  ListNum.splice(0, ListNum.length);
 
   while (ListNum.length < 6) {
-    const numero = getRandomNumber(1, 45);
+    numero = getRandomNumber(1, 45);
     if (!ListNum.includes(numero)) {
       ListNum.push(numero);
     }
   }
-
   ListNum.sort(compareNumbers);
+  console.log("Liste des Numéros pour le lotto : [" + ListNum + "]");
+
+  numerosLotto.textContent = ListNum;
+
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, "250");
 }
 
-// Fonction pour mettre à jour l'affichage
-function updateDisplay() {
-  numerosEur.textContent = ListNum.join(" ");
-  numerosEurCompl.textContent = ListNumComplementaires.join(" ");
-  numerosLotto.textContent = ListNum.join(" ");
-  loader.style.display = "none";
-}
-
-// Fonction pour générer les numéros, la date et l'heure, et mettre à jour l'affichage
-function Generate() {
-  const date = new Date();
-  const formattedDate = `${date.getDate().toString().padStart(2, "0")}-${(
-    date.getMonth() + 1
-  )
-    .toString()
-    .padStart(2, "0")}-${date.getFullYear()} ${date
-    .getHours()
-    .toString()
-    .padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}:${date
-    .getSeconds()
-    .toString()}`;
-  labeldate.textContent = formattedDate;
-
-  numerosEur.textContent = "";
-  loader.style.display = "flex";
-
-  generateEuroMillions();
-  generateLotto();
-  updateDisplay();
-}
-
-// Événement DOMContentLoaded pour lancer Generate lors du chargement de la page
-document.addEventListener("DOMContentLoaded", Generate);
-
-// Événement click sur le bouton Générer
-button.addEventListener("click", Generate);
-
-// Fonction de tri des nombres
+//Tri des nombres
 function compareNumbers(a, b) {
   return a - b;
 }
